@@ -1,16 +1,18 @@
 # Grids for kids
 
-An illustrative sample that shows simple usage of the mapnik grid_renderer output.
-
-For more info on the grid_renderer see: http://trac.mapnik.org/wiki/MapnikRenderers#grid_renderer
+An illustrative sample that shows simple usage of Wax and Mapnik's grid_renderer output.
 
 
 ## Background
 
-  The grid_renderer and its output is to support the mbtiles spec. Learn more here:
+  The grid_renderer targets the mbtiles spec. Learn more here:
   
-  https://github.com/mapbox/mbtiles-spec/
+    https://github.com/mapbox/mbtiles-spec/
   
+  For more about the grid_renderer:
+  
+    http://trac.mapnik.org/wiki/MapnikRenderers#grid_renderer
+
 
 ## Depends
   
@@ -20,7 +22,7 @@ For more info on the grid_renderer see: http://trac.mapnik.org/wiki/MapnikRender
   
   patch (to patch generate_tiles.py)
   
-  >= python 2.6 (for built in json module)
+  python >= 2.6 (for built in json module)
   
 
 ## Installation
@@ -32,13 +34,13 @@ For more info on the grid_renderer see: http://trac.mapnik.org/wiki/MapnikRender
 
   Get a few external dependencies for the demo by running
   
-  $ make
+   $ make
   
 
 ## Usage
 
   Then generate some tiles
   
-  $ make tiles
+   $ make tiles
 
   Then open the index.html in a web browser and you should be able to hover over polygons and get the country names.
