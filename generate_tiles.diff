@@ -1,0 +1,45 @@
+Index: generate_tiles.py
+===================================================================
+--- generate_tiles.py	(revision 25812)
++++ generate_tiles.py	(working copy)
+@@ -3,8 +3,9 @@
+ from subprocess import call
+ import sys, os
+ from Queue import Queue
+-import mapnik
++import mapnik2 as mapnik
+ import threading
++import json
+ 
+ DEG_TO_RAD = pi/180
+ RAD_TO_DEG = 180/pi
+@@ -96,8 +97,13 @@
+         im = mapnik.Image(render_size, render_size)
+         mapnik.render(self.m, im)
+         im.save(tile_uri, 'png256')
++        grid_uri = tile_uri.replace('.png','.grid.json')
++        grid = mapnik.render_grid(self.m, 0,4,'FIPS')
++        # client code uses jsonp, so fake by wrapping in grid() callback
++        open(grid_uri,'wb').write('grid(' + json.dumps(grid) + ')')
+ 
+ 
++
+     def loop(self):
+         while True:
+             #Fetch a tile from the queue and render it
+@@ -207,8 +213,9 @@
+     # World
+     bbox = (-180.0,-90.0, 180.0,90.0)
+ 
+-    render_tiles(bbox, mapfile, tile_dir, 0, 5, "World", tms_scheme=False)
++    render_tiles(bbox, mapfile, tile_dir, 0, 5, "World",tms_scheme=True)
+ 
++'''
+     minZoom = 10
+     maxZoom = 16
+     bbox = (-2, 50.0,1.0,52.0)
+@@ -249,3 +256,4 @@
+     # Europe+
+     bbox = (1.0,10.0, 20.6,50.0)
+     render_tiles(bbox, mapfile, tile_dir, 1, 11 , "Europe+")
++'''
