@@ -15,6 +15,7 @@ tiles:
 	mkdir -p tiles/1.0.0/world/
 	export MAPNIK_MAP_FILE=stylesheet.xml && export MAPNIK_TILE_DIR=tiles/1.0.0/world/ && ./generate_tiles.py
 	cp layer.json tiles/1.0.0/world/
+	echo 'now you can open the index.html!'
 
 clean:
 	if test -e "tiles"; then rm -r "tiles"; fi
