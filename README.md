@@ -16,7 +16,7 @@ An illustrative sample that shows simple usage of Wax and Mapnik's grid_renderer
 
 ## Depends
   
-  Mapnik branch (http://svn.mapnik.org/branches/grid_renderer/)
+  Mapnik trunk >= r 2842
   
   subversion (to checkout generate_tiles.py)
   
@@ -27,7 +27,7 @@ An illustrative sample that shows simple usage of Wax and Mapnik's grid_renderer
 
 ## Installation
   
-  Install Mapnik from the above svn repo as if you are installing Mapnik2 (http://trac.mapnik.org/wiki/Mapnik2)
+  Install Mapnik from >= r2842. More details about installing the latest mapnik at: http://trac.mapnik.org/wiki/Mapnik2
 
 
 ## Setup
