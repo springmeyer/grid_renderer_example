@@ -18,7 +18,7 @@ Index: generate_tiles.py
          mapnik.render(self.m, im)
          im.save(tile_uri, 'png256')
 +        grid_uri = tile_uri.replace('.png','.grid.json')
-+        grid = mapnik.render_grid(self.m,0,'__id__',step=4,fields=['POP2005','NAME'])
++        grid = mapnik.render_grid(self.m,0,key='__id__',resolution=4,fields=['POP2005','NAME'])
 +        # client code uses jsonp, so fake by wrapping in grid() callback
 +        open(grid_uri,'wb').write('grid(' + json.dumps(grid) + ')')
  
