@@ -16,18 +16,14 @@ An illustrative sample that shows simple usage of Wax and Mapnik's grid_renderer
 
 ## Depends
   
-  Mapnik trunk >= r 2842
-  
-  subversion (to checkout generate_tiles.py)
-  
-  patch (to patch generate_tiles.py)
+  Mapnik trunk >= r 2957
   
   python >= 2.6 (for built in json module)
   
 
 ## Installation
   
-  Install Mapnik from >= r2842. More details about installing the latest mapnik at: http://trac.mapnik.org/wiki/Mapnik2
+  Install Mapnik from >= r2957. More details about installing the latest mapnik at: http://trac.mapnik.org/wiki/Mapnik2
 
 
 ## Setup
@@ -43,4 +39,4 @@ An illustrative sample that shows simple usage of Wax and Mapnik's grid_renderer
   
    $ make tiles
 
-  Then open the index.html in a web browser and you should be able to hover over polygons and get the country names.
+  Then open the index.html in a web browser and you should be able to hover over polygons and get the country names and population.
