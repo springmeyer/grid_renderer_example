@@ -93,9 +93,19 @@ class RenderThread:
         mapnik.render(self.m, im)
         im.save(tile_uri, 'png256')
         grid_uri = tile_uri.replace('.png','.grid.json')
+        
+        # new mapnik.Grid api, works like mapnik.Image
+        # with the exception that you can only render one
+        # layer to it with the mapnik.render_layer function
+        
+        # create grid as same size as map/image
         grid = mapnik.Grid(render_size, render_size)
+        # render a layer to that grid array
         mapnik.render_layer(self.m,grid,layer=0,fields=['POP2005','NAME'])
-        grid_utf = grid.encode()
+        # then encode the grid array as utf, resample to 1/4 the size, and dump features
+        grid_utf = grid.encode('utf',resolution=4,add_features=True)
+        
+        # below is the old grid api - will be removed soon, don't use
         #grid_utf = mapnik.render_grid(self.m,0,key='__id__',resolution=4,fields=['POP2005','NAME'])
         # client code uses jsonp, so fake by wrapping in grid() callback
         open(grid_uri,'wb').write('grid(' + json.dumps(grid_utf) + ')')
