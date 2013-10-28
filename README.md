@@ -1,4 +1,4 @@
-# Grids for kids
+# grid_renderer example
 
 An illustrative sample that shows simple usage of Wax and Mapnik's grid_renderer output.
 
